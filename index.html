@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <script>
+      function ABTN() {
+        var nome = document.forms["notacao"]["nome"].value;
+        var sobrenome = document.forms["notacao"]["sobrenome"].value;
+        var parts = sobrenome.split(" ");
+        var initials = "";
+        var pos = sobrenome.lastIndexOf(" ");
+        var ultimoNome = sobrenome.substring(pos);
+
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i].length > 0 && parts[i] !== "") {
+            initials += parts[i][0];
+          }
+        }
+
+        document.forms["notacao"]["resultado"].value =
+          ultimoNome.toUpperCase() +
+          ", " +
+          nome.toUpperCase() +
+          " " +
+          initials.toUpperCase();
+      }
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <h1 style="font-family: verdana; color: gray">
+        Formatação de nome para notação ABTN
+      </h1>
+      <p style="font-family: verdana; color: gray; font-size: 150%">
+        Questão número 1 LABORATÓRIO 2A
+      </p>
+    </center>
+    <form name="notacao">
+      <p>
+        Nome:
+        <input type="text" name="nome" size="30" style="text-align: left" />
+      </p>
+      <p>
+        Sobrenome:
+        <input
+          type="text"
+          name="sobrenome"
+          size="30"
+          style="text-align: left"
+        />
+      </p>
+      <p>
+        Resultado:
+        <input
+          type="text"
+          name="resultado"
+          maxlength="20"
+          size="40"
+          style="text-align: left"
+        />
+      </p>
+      <p>
+        <input type="button" value="Executar" name="btABTN" onclick="ABTN()" />
+      </p>
+      <p>
+        <input type="reset" value="limpar" />
+      </p>
+    </form>
+  </body>
+</html>
